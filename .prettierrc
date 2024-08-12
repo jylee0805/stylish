@@ -1,0 +1,4 @@
+{
+    "object-curly-newline": "always",
+    "printWidth": 120
+}
