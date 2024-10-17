@@ -1,8 +1,28 @@
-# React + Vite
+# STYLiSH
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[STYLiSH](https://stylish-cbc00.web.app/homePage.html) 服裝銷售電子商務網站 
 
-Currently, two official plugins are available:
+## 主要功能  
+* 瀏覽、搜索產品
+* 查看產品詳細資訊
+* 將產品添加到購物車
+* 購物車結帳
+* Facebook 第三方登入
+  
+## 開發技術   
+&ensp;**JavaScript**  
+ * 完成首頁的邏輯與互動事件  
+ * 完成輪播圖及無限滾動  
+  
+&ensp;**React**  
+ * 完成商品頁、購物車頁  
+ * 使用 useState 管理狀態  
+  
+&ensp;**Styled Components：**  透過 Styled Components 完成樣式設計及響應式  
+  
+&ensp;**Tap Pay：**   金流服務
+  
+&ensp;**Facebook SDK：**  第三方會員登入
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 聯繫
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:smexoshinee17@gmail.com)
