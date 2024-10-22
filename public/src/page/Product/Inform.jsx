@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { AppContext } from "../AppContextProvider";
+import { AppContext } from "../../AppContextProvider";
 import Color from "./Color";
 import Num from "./Num";
 import Size from "./Size";

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { AppContext } from "../AppContextProvider";
+import { AppContext } from "../../AppContextProvider";
 import OrderInfo from "./OrderInfo";
 import Payment from "./Payment";
 import Product from "./Product";

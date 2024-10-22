@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { AppContext } from "./AppContextProvider";
-import member from "./Component/Header/img/member.png";
+import { AppContext } from "../../AppContextProvider";
+import member from "../Component/Header/img/member.png";
 
 const Wrap = styled.div`
   text-align: center;
