@@ -108,7 +108,6 @@ function renderBanner(data) {
 
 function runBannerSlide() {
   timer = setInterval(function () {
-    console.log(num);
     if (num == slideBoxs.length || num == undefined) {
       num = 0;
     }
@@ -155,11 +154,9 @@ slide.addEventListener("mouseout", () => {
 });
 
 pages.addEventListener("click", (e) => {
-  console.log(e.target);
   if (e.target.nodeName == "LI") {
     clearInterval(timer);
     let target = e.target.dataset.id;
-    console.log(num);
     slideBoxs[num].classList.remove("active");
     pageItem[num].style.background = "#fff";
 

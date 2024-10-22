@@ -58,10 +58,8 @@ const MemberPage = () => {
           });
 
           window.FB.getLoginStatus(function (response) {
-            console.log("[refreshLoginStatus]", response);
             if (response.status == "connected") {
               ajax(response.authResponse.accessToken).then((data) => {
-                console.log(data);
                 setLogin(data);
               });
             }
@@ -70,8 +68,6 @@ const MemberPage = () => {
         };
       };
     })(document, "script", "facebook-jssdk");
-
-    console.log(login);
   }, []);
   useEffect(() => {
     localStorage.setItem("login", JSON.stringify(login));

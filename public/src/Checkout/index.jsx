@@ -140,7 +140,6 @@ const Checkout = () => {
   const handlerSubmit = () => {
     let freight = 0;
     let subtotal = 0;
-    console.log(cartItem);
 
     cartItem.forEach((item) => {
       freight += item.num;
@@ -214,14 +213,11 @@ const Checkout = () => {
 
     window.TPDirect.card.getPrime((result) => {
       if (result.status === 0) {
-        console.log(result);
-
         let token = JSON.parse(localStorage.getItem("login")).data.access_token;
         ajax(token, result.card.prime, order).then((data) => {
           localStorage.setItem("cartItem", []);
           localStorage.setItem("num", 0);
           handlerCartNum();
-          console.log(data);
 
           navigate("/thanks", { state: data.data.number });
         });
@@ -232,8 +228,6 @@ const Checkout = () => {
   };
 
   const handlerSelect = (select, id, color, size) => {
-    console.log(cartItem);
-
     setCartItem((prevItem) => {
       return prevItem.map((item) => {
         if (item.id == id && item.color == color && item.size == size) {

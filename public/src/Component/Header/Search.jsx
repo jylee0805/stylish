@@ -69,7 +69,6 @@ const Search = () => {
   const searchBtnClick = () =>
     setToggle((prevToggle) => {
       if (screen.width < 1280) {
-        console.log(screen.width);
         prevToggle = !toggle;
       }
       return prevToggle;
