@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const OrderPayment = styled.div`
+const Container = styled.div`
   font-size: 16px;
   line-height: 19px;
   color: #3f3a3a;
@@ -11,7 +11,7 @@ const OrderPayment = styled.div`
     margin-bottom: 12px;
   }
 `;
-const PaymentTitle = styled.h4`
+const Title = styled.h4`
   font-weight: 700;
   margin-bottom: 16px;
   @media (max-width: 1279.9px) {
@@ -63,10 +63,10 @@ const Form = styled.form`
   }
 `;
 
-const CheckoutPayment = () => {
+const Payment = () => {
   return (
-    <OrderPayment>
-      <PaymentTitle>付款資料</PaymentTitle>
+    <Container>
+      <Title>付款資料</Title>
       <Line />
       <Form>
         <Label htmlFor="card-number">信用卡號碼</Label>
@@ -76,8 +76,8 @@ const CheckoutPayment = () => {
         <Label htmlFor="ccv">安全碼</Label>
         <Tpfield id="card-ccv"></Tpfield>
       </Form>
-    </OrderPayment>
+    </Container>
   );
 };
 
-export default CheckoutPayment;
+export default Payment;

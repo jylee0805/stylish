@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import facebook from "./img/facebook.png";
-import twitter from "./img/twitter.png";
 import line from "./img/line.png";
+import twitter from "./img/twitter.png";
 
-const Social = styled.ul`
+const Container = styled.ul`
   display: flex;
   column-gap: 30px;
   margin-left: 101px;
@@ -17,10 +17,10 @@ const Social = styled.ul`
     margin-top: 18px;
   }
 `;
-const SocialLink = styled.ul`
+const Link = styled.ul`
   display: block;
 `;
-const SocialImg = styled.img`
+const Img = styled.img`
   width: 50px;
   height: 50px;
   @media (max-width: 1279.9px) {
@@ -28,25 +28,25 @@ const SocialImg = styled.img`
     height: 20px;
   }
 `;
-const FooterSocial = () => {
+const Social = () => {
   return (
-    <Social>
+    <Container>
       <li>
-        <SocialLink href="#">
-          <SocialImg src={line} alt="line-icon" />
-        </SocialLink>
+        <Link href="#">
+          <Img src={line} alt="line-icon" />
+        </Link>
       </li>
       <li>
-        <SocialLink href="#">
-          <SocialImg src={twitter} alt="twitter-icon" />
-        </SocialLink>
+        <Link href="#">
+          <Img src={twitter} alt="twitter-icon" />
+        </Link>
       </li>
       <li>
-        <SocialLink href="#">
-          <SocialImg src={facebook} alt="facebook-icon" />
-        </SocialLink>
+        <Link href="#">
+          <Img src={facebook} alt="facebook-icon" />
+        </Link>
       </li>
-    </Social>
+    </Container>
   );
 };
-export default FooterSocial;
+export default Social;

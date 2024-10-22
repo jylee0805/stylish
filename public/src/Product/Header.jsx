@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import ProductInform from "./ProductInform";
+import Inform from "./Inform";
 
-const ProductMain = styled.div`
+const Container = styled.div`
   display: flex;
   column-gap: 40px;
   margin-bottom: 51px;
@@ -21,16 +21,16 @@ const ProductImg = styled.img`
   }
 `;
 
-const ProductHeader = ({ data, handlerCartNum }) => {
+const Header = ({ data, handlerCartNum }) => {
   if (!data || Object.keys(data).length === 0) {
     return null;
   }
 
   return (
-    <ProductMain>
+    <Container>
       <ProductImg src={data.main_image} alt="product img" />
-      <ProductInform data={data} handlerCartNum={handlerCartNum} />
-    </ProductMain>
+      <Inform data={data} handlerCartNum={handlerCartNum} />
+    </Container>
   );
 };
-export default ProductHeader;
+export default Header;

@@ -1,11 +1,11 @@
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { useEffect, useState, useContext } from "react";
-import { AppContext } from "../App-context";
-import ProductColor from "./ProductColor";
-import ProductSize from "./ProductSize";
-import ProductNum from "./ProductNum";
+import { AppContext } from "../AppContextProvider";
+import Color from "./Color";
+import Num from "./Num";
+import Size from "./Size";
 
-const Info = styled.div`
+const Container = styled.div`
   color: #3f3a3a;
 
   @media (max-width: 1279.9px) {
@@ -88,7 +88,7 @@ const Material = styled.p`
   }
 `;
 
-const ProductInform = ({ data }) => {
+const Inform = ({ data }) => {
   const { handlerCartNum } = useContext(AppContext);
   const [selectColor, setSelectColor] = useState("");
   const [sizeEnable, setSizeEnable] = useState([]);
@@ -99,6 +99,7 @@ const ProductInform = ({ data }) => {
   const [cartItem, setCartItem] = useState(
     !JSON.parse(localStorage.getItem("cartItem")) ? [] : JSON.parse(localStorage.getItem("cartItem"))
   );
+
   let localvariant = JSON.parse(localStorage.getItem("variants"));
   let description = String(data.description ?? []).split("\r\n");
 
@@ -233,19 +234,14 @@ const ProductInform = ({ data }) => {
   };
 
   return (
-    <Info>
+    <Container>
       <Title>{data.title}</Title>
       <Id>{data.id}</Id>
       <Price>TWD.{data.price}</Price>
       <Line></Line>
-      <ProductColor data={data} selectColor={selectColor} handlerSelectColor={handlerSelectColor} />
-      <ProductSize
-        data={data}
-        selectSize={selectSize.size}
-        handlerSelectSize={handlerSelectSize}
-        isEnable={sizeEnable}
-      />
-      <ProductNum handlerCount={handlerCount} count={count} />
+      <Color data={data} selectColor={selectColor} handlerSelectColor={handlerSelectColor} />
+      <Size data={data} selectSize={selectSize.size} handlerSelectSize={handlerSelectSize} isEnable={sizeEnable} />
+      <Num handlerCount={handlerCount} count={count} />
       <AddBtn onClick={handlerAdd} disabled={count == 0}>
         {addBtnText}
       </AddBtn>
@@ -264,7 +260,7 @@ const ProductInform = ({ data }) => {
         <br />
         產地：{data.place}
       </Material>
-    </Info>
+    </Container>
   );
 };
-export default ProductInform;
+export default Inform;

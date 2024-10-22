@@ -7,7 +7,7 @@ const Colors = styled.ul`
     column-gap: 26px;
   }
 `;
-const ColorItem = styled.li`
+const Item = styled.li`
   width: 24px;
   height: 24px;
   border: 1px solid #d3d3d3;
@@ -27,14 +27,14 @@ const ColorItem = styled.li`
   }
 `;
 
-const ProductColorList = ({ data, selectColor, handlerSelectColor }) => {
+const ColorList = ({ data, selectColor, handlerSelectColor }) => {
   if (!data || Object.keys(data).length === 0) {
     return null;
   }
   return (
     <Colors>
       {data.colors.map((color, index) => (
-        <ColorItem
+        <Item
           style={{ background: `#${color.code}` }}
           key={index}
           isSelect={selectColor === color.code}
@@ -46,4 +46,4 @@ const ProductColorList = ({ data, selectColor, handlerSelectColor }) => {
     </Colors>
   );
 };
-export default ProductColorList;
+export default ColorList;

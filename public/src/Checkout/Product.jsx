@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import CheckoutItem from "./CheckoutItem";
+import Item from "./Item";
 
-const ProductContainer = styled.div`
+const Container = styled.div`
   font-size: 16px;
   line-height: 19px;
   color: #3f3a3a;
@@ -72,14 +72,9 @@ const CartProductList = styled.ul`
   }
 `;
 
-const CheckoutProduct = ({
-  cartItem,
-  handlerRemove,
-  handlerSelect,
-  setCartItem,
-}) => {
+const CheckoutProduct = ({ cartItem, handlerRemove, handlerSelect, setCartItem }) => {
   return (
-    <ProductContainer>
+    <Container>
       <TitleContainer>
         <CartTitle>購物車</CartTitle>
         <NumTitle>數量</NumTitle>
@@ -90,7 +85,7 @@ const CheckoutProduct = ({
 
       <CartProductList>
         {cartItem.map((item, index) => (
-          <CheckoutItem
+          <Item
             productDetail={item}
             key={index}
             handlerSelect={handlerSelect}
@@ -99,7 +94,7 @@ const CheckoutProduct = ({
           />
         ))}
       </CartProductList>
-    </ProductContainer>
+    </Container>
   );
 };
 

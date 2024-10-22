@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import HeaderCart from "./HeaderCart";
-import HeaderMember from "./HeaderMember";
-import HeaderSearch from "./HeaderSearch";
+import Cart from "./Cart";
+import Member from "./Member";
+import Search from "./Search";
 
-const Feature = styled.div`
+const Container = styled.div`
   display: flex;
   column-gap: 42px;
   margin-left: auto;
@@ -29,15 +29,15 @@ const FeatureBox = styled.div`
   }
 `;
 
-const HeaderFeature = ({ cartNum, profileImg }) => {
+const Feature = ({ cartNum, profileImg }) => {
   return (
-    <Feature>
-      <HeaderSearch />
+    <Container>
+      <Search />
       <FeatureBox>
-        <HeaderCart cartNum={cartNum} />
-        <HeaderMember profileImg={profileImg} />
+        <Cart cartNum={cartNum} />
+        <Member profileImg={profileImg} />
       </FeatureBox>
-    </Feature>
+    </Container>
   );
 };
-export default HeaderFeature;
+export default Feature;

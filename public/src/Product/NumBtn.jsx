@@ -34,7 +34,7 @@ const Num = styled.p`
   }
 `;
 
-const ProductNumBtn = ({ handlerCount, count }) => {
+const NumBtn = ({ handlerCount, count }) => {
   return (
     <BtnBox>
       <Btn type="button" value="-" onClick={() => handlerCount(-1)} />
@@ -43,4 +43,4 @@ const ProductNumBtn = ({ handlerCount, count }) => {
     </BtnBox>
   );
 };
-export default ProductNumBtn;
+export default NumBtn;

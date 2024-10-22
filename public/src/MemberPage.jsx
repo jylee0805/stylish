@@ -1,7 +1,7 @@
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import { AppContext } from "./AppContextProvider";
 import member from "./Component/Header/img/member.png";
-import { useEffect, useState, useContext } from "react";
-import { AppContext } from "./App-context";
 
 const Wrap = styled.div`
   text-align: center;
@@ -50,7 +50,6 @@ const MemberPage = () => {
       fjs.parentNode.insertBefore(js, fjs);
       js.onload = () => {
         window.fbAsyncInit = function () {
-          // 初始化 Facebook SDK
           window.FB.init({
             appId: 1240870317271548,
             cookie: true,

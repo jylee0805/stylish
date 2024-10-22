@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const OrderInfo = styled.div`
+const Container = styled.div`
   font-size: 16px;
   line-height: 19px;
   color: #3f3a3a;
@@ -11,7 +11,7 @@ const OrderInfo = styled.div`
     margin-bottom: 19px;
   }
 `;
-const OrderTitle = styled.h4`
+const Title = styled.h4`
   font-weight: 700;
   margin-bottom: 16px;
   font-size: 16px;
@@ -117,13 +117,13 @@ const RadioBtn = styled.input`
     }
   }
 `;
-const CheckoutOrderInfo = ({ formData, handlerOnChange, isBlank, isCorrect }) => {
+const OrderInfo = ({ formData, handlerOnChange, isBlank, isCorrect }) => {
   const handlerInput = (e) => {
     handlerOnChange(e.target.name, e.target.value);
   };
   return (
-    <OrderInfo>
-      <OrderTitle>訂購資料</OrderTitle>
+    <Container>
+      <Title>訂購資料</Title>
       <Line />
       <Form action="">
         <Label htmlFor="">收件人姓名</Label>
@@ -166,8 +166,8 @@ const CheckoutOrderInfo = ({ formData, handlerOnChange, isBlank, isCorrect }) =>
         </RadioBox>
         <Tip isBlank={isBlank.time}>請選擇時間</Tip>
       </Form>
-    </OrderInfo>
+    </Container>
   );
 };
 
-export default CheckoutOrderInfo;
+export default OrderInfo;

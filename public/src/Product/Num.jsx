@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import ProductNumBtn from "./ProductNumBtn";
+import NumBtn from "./NumBtn";
 
-const NumSection = styled.div`
+const Container = styled.div`
   display: flex;
   margin-bottom: 26px;
   align-items: center;
@@ -19,12 +19,12 @@ const ItemName = styled.p`
   }
 `;
 
-const ProductNum = ({ handlerCount, count }) => {
+const Num = ({ handlerCount, count }) => {
   return (
-    <NumSection>
+    <Container>
       <ItemName>數量｜</ItemName>
-      <ProductNumBtn handlerCount={handlerCount} count={count} />
-    </NumSection>
+      <NumBtn handlerCount={handlerCount} count={count} />
+    </Container>
   );
 };
-export default ProductNum;
+export default Num;

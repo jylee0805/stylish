@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { AppContext } from "../../App-context";
 import { useContext } from "react";
-import cart from "./img/cart.png";
+import styled from "styled-components";
+import { AppContext } from "../../AppContextProvider";
 import cartHover from "./img/cart-hover.png";
 import cartMobile from "./img/cart-mobile.png";
+import cart from "./img/cart.png";
 
-const CartLink = styled.a`
+const Link = styled.a`
   position: relative;
   @media (max-width: 1279.9px) {
     display: flex;
@@ -41,26 +41,26 @@ const FeatureName = styled.p`
     display: block;
   }
 `;
-const Cart = styled.img`
-  ${CartLink}:hover & {
+const CartImg = styled.img`
+  ${Link}:hover & {
     content: url(${cartHover});
   }
   @media (max-width: 1279.9px) {
     content: url(${cartMobile});
   }
 `;
-const HeaderCart = () => {
+const Cart = () => {
   const { cartNum } = useContext(AppContext);
   return (
     <>
-      <CartLink href="/checkout">
+      <Link href="/checkout">
         <CartBox>
-          <Cart src={cart} alt="cart-icon" />
+          <CartImg src={cart} alt="cart-icon" />
           <CartNum>{cartNum}</CartNum>
         </CartBox>
         <FeatureName>購物車</FeatureName>
-      </CartLink>
+      </Link>
     </>
   );
 };
-export default HeaderCart;
+export default Cart;

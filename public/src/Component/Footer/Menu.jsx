@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Menu = styled.ul`
+const Container = styled.ul`
   display: flex;
   margin-left: -10px;
   margin-top: -2px;
@@ -16,10 +16,10 @@ const Menu = styled.ul`
     margin-top: 1px;
   }
 `;
-const MenuItem = styled.li`
+const Item = styled.li`
   position: relative;
 `;
-const MenuLink = styled.a`
+const Link = styled.a`
   display: block;
   width: 134px;
   color: #f5f5f5;
@@ -27,7 +27,7 @@ const MenuLink = styled.a`
   line-height: 22px;
   text-align: center;
 
-  ${MenuItem} + li > &::before {
+  ${Item} + li > &::before {
     content: "";
     height: 16px;
     width: 1px;
@@ -48,25 +48,25 @@ const MenuLink = styled.a`
     font-weight: 400;
   }
 `;
-const FooterMenu = () => {
+const Menu = () => {
   return (
-    <Menu>
-      <MenuItem>
-        <MenuLink href="#">關於 STYLiSH</MenuLink>
-      </MenuItem>
-      <MenuItem>
-        <MenuLink href="#">服務條款</MenuLink>
-      </MenuItem>
-      <MenuItem>
-        <MenuLink href="#">隱私政策</MenuLink>
-      </MenuItem>
-      <MenuItem>
-        <MenuLink href="#">聯絡我們</MenuLink>
-      </MenuItem>
-      <MenuItem>
-        <MenuLink href="#">FAQ</MenuLink>
-      </MenuItem>
-    </Menu>
+    <Container>
+      <Item>
+        <Link href="#">關於 STYLiSH</Link>
+      </Item>
+      <Item>
+        <Link href="#">服務條款</Link>
+      </Item>
+      <Item>
+        <Link href="#">隱私政策</Link>
+      </Item>
+      <Item>
+        <Link href="#">聯絡我們</Link>
+      </Item>
+      <Item>
+        <Link href="#">FAQ</Link>
+      </Item>
+    </Container>
   );
 };
-export default FooterMenu;
+export default Menu;
