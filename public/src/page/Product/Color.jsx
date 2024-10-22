@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import ProductColorList from "./ProductColorList";
+import ColorList from "./ColorList";
 
-const ColorSection = styled.div`
+const Container = styled.div`
   display: flex;
   align-items: center;
   margin-top: 35px;
@@ -23,15 +23,15 @@ const ItemName = styled.p`
   }
 `;
 
-const ProductColor = ({ data, selectColor, handlerSelectColor }) => {
+const Color = ({ data, selectColor, handlerSelectColor }) => {
   if (!data || Object.keys(data).length === 0) {
     return null;
   }
   return (
-    <ColorSection>
+    <Container>
       <ItemName>顏色｜</ItemName>
-      <ProductColorList data={data} selectColor={selectColor} handlerSelectColor={handlerSelectColor} />
-    </ColorSection>
+      <ColorList data={data} selectColor={selectColor} handlerSelectColor={handlerSelectColor} />
+    </Container>
   );
 };
-export default ProductColor;
+export default Color;

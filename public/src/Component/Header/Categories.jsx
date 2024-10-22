@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Categories = styled.ul`
+const Container = styled.ul`
   display: flex;
   align-items: center;
   padding-left: 57px;
@@ -12,7 +12,7 @@ const Categories = styled.ul`
   }
 `;
 
-const CategoryItem = styled.li`
+const Item = styled.li`
   position: relative;
 
   @media (max-width: 1279.9px) {
@@ -20,14 +20,14 @@ const CategoryItem = styled.li`
   }
 `;
 
-const CategoryLink = styled.a`
+const Link = styled.a`
   padding: 0 10px 0 40px;
   text-align: center;
   font-size: 20px;
   line-height: 30px;
   letter-spacing: 30px;
 
-  ${CategoryItem} + ${CategoryItem} > &::before {
+  ${Item} + ${Item} > &::before {
     content: "";
     height: 20px;
     width: 1px;
@@ -41,7 +41,7 @@ const CategoryLink = styled.a`
     }
   }
 
-  ${CategoryItem}:hover & {
+  ${Item}:hover & {
     color: #8b572a;
     @media (max-width: 1279.9px) {
       color: #fff;
@@ -58,19 +58,19 @@ const CategoryLink = styled.a`
   }
 `;
 
-const HeaderCategories = () => {
+const Categories = () => {
   return (
-    <Categories>
-      <CategoryItem>
-        <CategoryLink href="./homePage.html?category=women">女裝</CategoryLink>
-      </CategoryItem>
-      <CategoryItem>
-        <CategoryLink href="./homePage.html?category=men">男裝</CategoryLink>
-      </CategoryItem>
-      <CategoryItem>
-        <CategoryLink href="./homePage.html?category=accessories">配件</CategoryLink>
-      </CategoryItem>
-    </Categories>
+    <Container>
+      <Item>
+        <Link href="./homePage.html?category=women">女裝</Link>
+      </Item>
+      <Item>
+        <Link href="./homePage.html?category=men">男裝</Link>
+      </Item>
+      <Item>
+        <Link href="./homePage.html?category=accessories">配件</Link>
+      </Item>
+    </Container>
   );
 };
-export default HeaderCategories;
+export default Categories;

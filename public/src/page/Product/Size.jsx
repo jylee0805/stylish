@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import ProductSizeList from "./ProductSizeList";
+import SizeList from "./SizeList";
 
-const SizeSection = styled.div`
+const Container = styled.div`
   display: flex;
   align-items: center;
   column-gap: 20px;
@@ -23,16 +23,16 @@ const ItemName = styled.p`
   }
 `;
 
-const ProductSize = ({ data, selectSize, handlerSelectSize, isEnable }) => {
+const Size = ({ data, selectSize, handlerSelectSize, isEnable }) => {
   if (!data || Object.keys(data).length === 0) {
     return null;
   }
 
   return (
-    <SizeSection>
+    <Container>
       <ItemName>尺寸｜</ItemName>
-      <ProductSizeList data={data} selectSize={selectSize} handlerSelectSize={handlerSelectSize} isEnable={isEnable} />
-    </SizeSection>
+      <SizeList data={data} selectSize={selectSize} handlerSelectSize={handlerSelectSize} isEnable={isEnable} />
+    </Container>
   );
 };
-export default ProductSize;
+export default Size;

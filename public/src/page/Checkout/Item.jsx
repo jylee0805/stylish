@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import trash from "./img/cart-remove.png";
 
-const CartProductItem = styled.li`
+const Container = styled.li`
   display: grid;
   grid-template-columns: 410px 1fr 44px;
   font-size: 16px;
@@ -28,7 +28,7 @@ const CartProductItem = styled.li`
     }
   }
 `;
-const CartProductHeader = styled.div`
+const Header = styled.div`
   display: flex;
   column-gap: 15px;
   @media (max-width: 1279.9px) {
@@ -36,29 +36,29 @@ const CartProductHeader = styled.div`
   }
 `;
 const Text = styled.div``;
-const CartProductImg = styled.img`
+const Img = styled.img`
   width: 114px;
   height: 152px;
 `;
-const CartProducTitle = styled.p`
+const ProductTitle = styled.p`
   margin-bottom: 18px;
   @media (max-width: 1279.9px) {
     margin-bottom: 20px;
   }
 `;
-const CartProducId = styled.p`
+const ProductId = styled.p`
   margin-bottom: 22px;
   @media (max-width: 1279.9px) {
     margin-bottom: 24px;
   }
 `;
-const CartProducColor = styled.p`
+const Color = styled.p`
   margin-bottom: 10px;
   @media (max-width: 1279.9px) {
     margin-bottom: 12px;
   }
 `;
-const CartProductInfo = styled.div`
+const Info = styled.div`
   display: grid;
   grid-template-columns: 1fr 192px 192px;
   @media (max-width: 1279.9px) {
@@ -100,7 +100,7 @@ const TotalTitle = styled(Title)`
     margin-left: 0px;
   }
 `;
-const CartProducNum = styled.select`
+const Num = styled.select`
   display: block;
   width: 80px;
   height: 32px;
@@ -119,9 +119,9 @@ const CartProducNum = styled.select`
     margin-left: 12px;
   }
 `;
-const CartProducNumOption = styled.option``;
-const CartProducSize = styled.p``;
-const CartProducPrice = styled.p`
+const NumOption = styled.option``;
+const ProductSize = styled.p``;
+const ProductPrice = styled.p`
   margin-top: 9px;
   margin-left: 22px;
   @media (max-width: 1279.9px) {
@@ -132,7 +132,7 @@ const CartProducPrice = styled.p`
     margin-left: 24px;
   }
 `;
-const CartProducTotal = styled.p`
+const ProductTotal = styled.p`
   margin-top: 9px;
   margin-left: 22px;
   @media (max-width: 1279.9px) {
@@ -143,7 +143,7 @@ const CartProducTotal = styled.p`
     margin-left: 23px;
   }
 `;
-const CartProducRemove = styled.button`
+const Remove = styled.button`
   width: 44px;
   height: 44px;
   background-color: transparent;
@@ -156,7 +156,7 @@ const CartProducRemove = styled.button`
     top: 0;
   }
 `;
-const CheckoutItem = ({ productDetail, handlerSelect, handlerRemove }) => {
+const Item = ({ productDetail, handlerSelect, handlerRemove }) => {
   let price = productDetail.price;
   let stock = productDetail.stock;
 
@@ -165,41 +165,41 @@ const CheckoutItem = ({ productDetail, handlerSelect, handlerRemove }) => {
   }
 
   return (
-    <CartProductItem>
-      <CartProductHeader>
-        <CartProductImg src={productDetail.main_image} alt="product Img" />
+    <Container>
+      <Header>
+        <Img src={productDetail.main_image} alt="product Img" />
         <Text>
-          <CartProducTitle>{productDetail.title}</CartProducTitle>
-          <CartProducId>{productDetail.id}</CartProducId>
-          <CartProducColor>顏色｜{productDetail.color.name}</CartProducColor>
-          <CartProducSize>尺寸｜{productDetail.size}</CartProducSize>
+          <ProductTitle>{productDetail.title}</ProductTitle>
+          <ProductId>{productDetail.id}</ProductId>
+          <Color>顏色｜{productDetail.color.name}</Color>
+          <ProductSize>尺寸｜{productDetail.size}</ProductSize>
         </Text>
-      </CartProductHeader>
-      <CartProductInfo>
+      </Header>
+      <Info>
         <InfoItem>
           <NumTitle>數量</NumTitle>
-          <CartProducNum
+          <Num
             onChange={(e) => handlerSelect(e.target.value, productDetail.id, productDetail.color, productDetail.size)}
           >
             {Array.from({ length: stock }, (_, index) => (
-              <CartProducNumOption key={index + 1} value={index + 1} selected={index + 1 == productDetail.num}>
+              <NumOption key={index + 1} value={index + 1} selected={index + 1 == productDetail.num}>
                 {index + 1}
-              </CartProducNumOption>
+              </NumOption>
             ))}
-          </CartProducNum>
+          </Num>
         </InfoItem>
         <InfoItem>
           <SingleTitle>單價</SingleTitle>
-          <CartProducPrice>TWD.{productDetail.price}</CartProducPrice>
+          <ProductPrice>TWD.{productDetail.price}</ProductPrice>
         </InfoItem>
         <InfoItem>
           <TotalTitle>小計</TotalTitle>
-          <CartProducTotal>TWD.{price * productDetail.num}</CartProducTotal>
+          <ProductTotal>TWD.{price * productDetail.num}</ProductTotal>
         </InfoItem>
-      </CartProductInfo>
-      <CartProducRemove onClick={() => handlerRemove(productDetail.id, productDetail.color, productDetail.size)} />
-    </CartProductItem>
+      </Info>
+      <Remove onClick={() => handlerRemove(productDetail.id, productDetail.color, productDetail.size)} />
+    </Container>
   );
 };
 
-export default CheckoutItem;
+export default Item;

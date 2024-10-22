@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import CheckoutProduct from "./CheckoutProduct";
-import CheckoutOrderInfo from "./CheckoutOrderInfo";
-import CheckoutPayment from "./CheckoutPayment";
-import CheckoutTotal from "./CheckoutTotal";
-import { useState, useEffect, useContext } from "react";
-import { AppContext } from "../App-context";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { AppContext } from "../../AppContextProvider";
+import OrderInfo from "./OrderInfo";
+import Payment from "./Payment";
+import Product from "./Product";
+import Total from "./Total";
 
 const Wrap = styled.div`
   width: 1160px;
@@ -161,11 +161,7 @@ const Checkout = () => {
       freight: freight,
       total: subtotal + 30,
       recipient: {
-        name: formData.name,
-        phone: formData.telphone,
-        email: formData.email,
-        address: formData.address,
-        time: formData.time,
+        ...formData,
       },
       list: list,
     };
@@ -222,6 +218,7 @@ const Checkout = () => {
           localStorage.setItem("cartItem", []);
           localStorage.setItem("num", 0);
           handlerCartNum();
+
           navigate("/thanks", { state: data.data.number });
         });
       } else {
@@ -235,13 +232,7 @@ const Checkout = () => {
       return prevItem.map((item) => {
         if (item.id == id && item.color == color && item.size == size) {
           return {
-            id: item.id,
-            title: item.title,
-            main_image: item.main_image,
-            price: item.price,
-            color: item.color,
-            size: item.size,
-            stock: item.stock,
+            ...item,
             num: parseInt(select),
           };
         }
@@ -257,20 +248,15 @@ const Checkout = () => {
   };
   return (
     <Wrap>
-      <CheckoutProduct
+      <Product
         cartItem={cartItem}
         handlerSelect={handlerSelect}
         setCartItem={setCartItem}
         handlerRemove={handlerRemove}
       />
-      <CheckoutOrderInfo
-        formData={formData}
-        handlerOnChange={handlerOnChange}
-        isBlank={isBlank}
-        isCorrect={isCorrect}
-      />
-      <CheckoutPayment />
-      <CheckoutTotal cartItem={cartItem} handlerSubmit={handlerSubmit} />
+      <OrderInfo formData={formData} handlerOnChange={handlerOnChange} isBlank={isBlank} isCorrect={isCorrect} />
+      <Payment />
+      <Total cartItem={cartItem} handlerSubmit={handlerSubmit} />
     </Wrap>
   );
 };

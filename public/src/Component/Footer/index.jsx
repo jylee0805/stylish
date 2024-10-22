@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import FooterMenu from "./FooterMenu";
-import FooterSocial from "./FooterSocial";
+import Menu from "./Menu";
+import Social from "./Social";
 
-const FooterContainer = styled.footer`
+const Container = styled.footer`
   background: #313538;
   width: 100vw;
 `;
 
-const FooterContent = styled.div`
+const Content = styled.div`
   display: flex;
   justify-content: center;
   padding: 33px 0px 32px 10px;
@@ -39,17 +39,17 @@ const CopyRight = styled.small`
 `;
 const Footer = () => {
   return (
-    <FooterContainer>
-      <FooterContent>
+    <Container>
+      <Content>
         <nav>
-          <FooterMenu />
+          <Menu />
         </nav>
         <nav>
-          <FooterSocial />
+          <Social />
         </nav>
         <CopyRight>© 2018. All rights reserved.</CopyRight>
-      </FooterContent>
-    </FooterContainer>
+      </Content>
+    </Container>
   );
 };
 

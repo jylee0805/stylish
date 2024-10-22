@@ -1,13 +1,13 @@
-import GlobalStyle from "./style/GlobalStyle";
-import ProductPage from "./ProductPage";
-import CheckoutPage from "./CheckoutPage";
-import MemberPage from "./MemberPage";
-import ThanksPage from "./ThanksPage";
-import Header from "./Component/Header";
-import Footer from "./Component/Footer";
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
-import { AppProvider } from "./App-context";
+import { AppProvider } from "./AppContextProvider";
+import Footer from "./Component/Footer";
+import Header from "./Component/Header";
+import CheckoutPage from "./page/CheckoutPage";
+import MemberPage from "./page/MemberPage";
+import ProductPage from "./page/ProductPage";
+import ThanksPage from "./page/ThanksPage";
+import GlobalStyle from "./style/GlobalStyle";
 
 const Wrap = styled.div`
   display: flex;

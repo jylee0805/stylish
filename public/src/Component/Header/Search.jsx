@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import search from "./img/search.png";
 
-const SearchBox = styled.div`
+const Container = styled.div`
   position: relative;
 
   @media (max-width: 1279.9px) {
@@ -15,7 +15,7 @@ const SearchBox = styled.div`
   }
 `;
 
-const Search = styled.input`
+const SearchInput = styled.input`
   width: 214px;
   height: 44px;
   padding: 20px 40px 20px 20px;
@@ -48,16 +48,15 @@ const SearchBtn = styled.div`
   }
 `;
 
-const HeaderSearch = () => {
+const Search = () => {
   let urlString = location.href;
   let url = new URL(urlString);
   const [toggle, setToggle] = useState(true);
 
-  const submitSearch = (e) => {
+  const handleSearchSubmit = (e) => {
     if (e.keyCode == 13) {
       let searchValue = e.target.value;
       let searchUrl;
-      //把參數設為輸入內容，若為空值就停在當前頁面
       if (searchValue !== "") {
         searchUrl = new URLSearchParams(`search=${searchValue}`);
         url.search = searchUrl;
@@ -70,7 +69,6 @@ const HeaderSearch = () => {
   const searchBtnClick = () =>
     setToggle((prevToggle) => {
       if (screen.width < 1280) {
-        console.log(screen.width);
         prevToggle = !toggle;
       }
       return prevToggle;
@@ -94,12 +92,12 @@ const HeaderSearch = () => {
   }, [screen.width]);
 
   return (
-    <SearchBox>
-      <Search type="search" placeholder="西裝" onKeyDown={submitSearch} isToggle={toggle} />
+    <Container>
+      <SearchInput type="search" placeholder="西裝" onKeyDown={handleSearchSubmit} isToggle={toggle} />
       <SearchBtn onClick={searchBtnClick}>
         <img src={search} alt="search-icon" />
       </SearchBtn>
-    </SearchBox>
+    </Container>
   );
 };
-export default HeaderSearch;
+export default Search;

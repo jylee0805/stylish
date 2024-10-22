@@ -28,7 +28,7 @@ const SizeItem = styled.button`
     return props.isSelect ? "#fff" : "rgba(63, 58, 58, 0.25))";
   }};
 `;
-const ProductSizeList = ({ data, selectSize, handlerSelectSize, isEnable }) => {
+const SizeList = ({ data, selectSize, handlerSelectSize, isEnable }) => {
   if (!data || Object.keys(data).length === 0 || isEnable.length <= 0) {
     return null;
   }
@@ -48,4 +48,4 @@ const ProductSizeList = ({ data, selectSize, handlerSelectSize, isEnable }) => {
     </Sizes>
   );
 };
-export default ProductSizeList;
+export default SizeList;

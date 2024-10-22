@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import ProductHeader from "./ProductHeader";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+import Header from "./Header";
 
-const ProductContainer = styled.div`
+const Container = styled.div`
   width: 960px;
   margin: 14px auto 19px;
   font-size: 20px;
@@ -12,7 +12,7 @@ const ProductContainer = styled.div`
     margin: 0 auto;
   }
 `;
-const ProductMoreTitle = styled.h3`
+const MoreTitle = styled.h3`
   letter-spacing: 3px;
   color: #8b572a;
   margin-bottom: 28px;
@@ -39,7 +39,7 @@ const ProductMoreTitle = styled.h3`
     }
   }
 `;
-const ProductText = styled.p`
+const Text = styled.p`
   margin-bottom: 30px;
   margin-left: 8px;
   @media (max-width: 1279.9px) {
@@ -48,7 +48,7 @@ const ProductText = styled.p`
     line-height: 25px;
   }
 `;
-const ProductMoreImg = styled.img`
+const MoreImg = styled.img`
   width: 960px;
   height: 540px;
   display: block;
@@ -93,14 +93,14 @@ const Product = () => {
   }
 
   return (
-    <ProductContainer>
-      <ProductHeader data={details} />
-      <ProductMoreTitle>更多產品資訊</ProductMoreTitle>
-      <ProductText>{details.story}</ProductText>
+    <Container>
+      <Header data={details} />
+      <MoreTitle>更多產品資訊</MoreTitle>
+      <Text>{details.story}</Text>
       {details &&
         details.images &&
-        details.images.map((image, index) => <ProductMoreImg src={image} alt="product img" key={index} />)}
-    </ProductContainer>
+        details.images.map((image, index) => <MoreImg src={image} alt="product img" key={index} />)}
+    </Container>
   );
 };
 export default Product;

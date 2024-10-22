@@ -1,9 +1,9 @@
+import { useContext } from "react";
 import styled from "styled-components";
-import member from "./img/member.png";
+import { AppContext } from "../../AppContextProvider";
 import memberHover from "./img/member-hover.png";
 import memberMobile from "./img/member-mobile.png";
-import { useContext } from "react";
-import { AppContext } from "../../App-context";
+import member from "./img/member.png";
 
 const MemberLink = styled.a`
   @media (max-width: 1279.9px) {
